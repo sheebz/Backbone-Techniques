@@ -18,3 +18,4 @@ This is typically taken care of via a template library such as handlebars or mus
 ** Backbone.Validation - 
 
 # Dependency Injection
+I highly reccomend you consider using a module loader such as RequireJS
