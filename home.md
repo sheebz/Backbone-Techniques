@@ -86,7 +86,9 @@ console.log('content is ' + this.$el.html());
 # Model Techniques
 ## Types of Models
 ### View Models
-Most app
+Most applications are basically just wrappers around what many refer to as a domain model.  A domain model can be thought of as business rules and data.  Usually the domain model does not have a 1-1 relationship with the UI or views that are presented to the user.  
+
+
 ### Domain Models
 ## Using Backbone with Non-Restful services
 ### Overriding Backbone.sync
