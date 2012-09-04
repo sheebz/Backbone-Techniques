@@ -25,7 +25,9 @@ I highly reccomend you consider using a module loader such as RequireJS.
 ## Implementing a Controller Object
 ### Dynamic Controller Invocation
 
-## Overriding Sync Method
+## Using Backbone with Non-Restful services
+### Overriding Backbone.sync
+
 
 
 
