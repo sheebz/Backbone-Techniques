@@ -7,20 +7,14 @@
 I highly reccomend you consider using a module loader such as RequireJS.
 ## Using Mixins
 ## Decorating instance methods/functions
+
 ```javascript
-var Photo = Backbone.Model.extend({
-
-    // Default attributes for the photo
-    defaults: {
-      // Ensure that each photo created has an `src`.
-      src: "placeholder.jpg",
-      caption: "A default image",
-      viewed: false
-    },
-
-    initialize: function() {
-    }
-
+//decorate render call so we can add the validation binding
+view.oldRender = view.render; //store instance render (user provided render) in a property
+view.render = function () { //now implement the base render method 
+view.oldRender.apply(view, arguments);
+//provide your decoration logic here
+console.log('content is ' + this.$el.html());
 });
 ```
 # Model Techniques
