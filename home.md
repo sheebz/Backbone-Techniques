@@ -12,10 +12,21 @@ This is typically taken care of via a template library such as handlebars or mus
 * There are backbone extensions which can take care of this for you. 
 * fairly easy to write your own.
 
-# Validation
+## Validation
 * Backbone's validation occurs on the model object.  
 * Validate is provided by the developer, is called automatically before save, this gives the developer a hook to implement custom reusable logic.  There are some 3rd party extensions for this.
 ** Backbone.Validation - 
 
-# Dependency Injection
-I highly reccomend you consider using a module loader such as RequireJS
+## Dependency Injection
+I highly reccomend you consider using a module loader such as RequireJS.
+
+## Dynamic Template Loading
+
+## Implementing a Controller Object
+### Dynamic Controller Invocation
+
+
+
+
+
+
