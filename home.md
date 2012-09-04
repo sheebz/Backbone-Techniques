@@ -27,8 +27,7 @@ This is typically taken care of via a template library such as handlebars or mus
 ## Dynamic Template Loading
 ## Validation
 * Backbone's validation occurs on the model object.  
-* Validate is provided by the developer, is called automatically before save, this gives the developer a hook to implement custom reusable logic.  There are some 3rd party extensions for this.
-** Backbone.Validation - 
+* Validate is provided by the developer, is called automatically before save, this gives the developer a hook to implement custom reusable logic.  There are some 3rd party extensions for this. For example:  Backbone.Validation 
 
 
 
