@@ -2,12 +2,36 @@
 
 # General Techniques
 ## Implementing a Controller Object
+### Problem:
+You have a large application and want to avoid placing logic in routes and views.
+### Solution: 
+A possible solution for this is to introduce a supervising controller object.  The controller can be a simple object that exposes methods or actions that will be invoked based on the current route.
+```javascript
+var controller = {
+  index : function(){
+    var view = new indexView();
+    view.render($('#content'));
+  },
+  detail : function(albumId){
+    var model = new AlbumModel({albumId:albumId});
+    model.fetch({success:function(response, status, xhr){
+      var detailView = new DetailView({model : model});
+      detailView.render($('#content'));
+    }})
+    
+  }
+};
+```
+
 ### Dynamic Controller Invocation
 ## Dependency Injection
 I highly reccomend you consider using a module loader such as RequireJS.
 ## Using Mixins
 ## Decorating instance methods/functions
-
+### Problem:
+You want to create a view that logs its output to the console whenever it's rendered, but you want it to automatically happen whenever render is called on a base view.  You don't want the developer to have to invoke the method excplicity in render.
+### Solution:
+Place render function in a temporary function, then call temporary function from within base render call.  Remember that if you require the views html to be present 
 ```javascript
 //decorate render call so we can add the validation binding
 view.oldRender = view.render; //store instance render (user provided render) in a property
