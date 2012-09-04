@@ -24,6 +24,20 @@ var controller = {
 ```
 
 ### Dynamic Controller Invocation
+#### Problem
+Your routes are basically repeating the same logic - creating a controller object, then calling the action method, you want something a little more DRYful.
+#### Solution 
+If you are using a controller like object, it is farily trivial to implement a standard routing system that works like some of the server side frameworks such as ASP.NET MVC.  In the following example, we implement a dynamic route based on the url where the first part of the path defines the controller and the second part defines the action.  
+
+```javascript
+crossroads.addRoute('/{controller}/{action}/{args}', function(controller, action, args){
+  require([controller], function(ControllerObject){
+    var myController = new ControllerObject();
+    myController[action] && myController[action].call(myController, args);
+  });
+});
+```
+
 ## Dependency Injection
 I highly reccomend you consider using a module loader such as RequireJS.
 ## Using Mixins
