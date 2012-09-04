@@ -45,6 +45,30 @@ Also note that we are using requirejs to pull in the controller module, we then 
 ## Dependency Injection
 I highly reccomend you consider using a module loader such as RequireJS.
 ## Using Mixins
+### Problem:
+You want to share functionality between objects.
+### Solution:
+One possible way to share objects is to add properties to the target object's prototype.  A drawback of this approach is that it is somewhat clunky and complicated, and also forces implementors to use new for object creation.
+
+A lighter and more elegant solution is to use the concept of a mixin, which essentially just copies target properties from one object to another.  This method favors composition over inheritance, which is preferable in most code reuse situations.
+
+```javascript
+var loggingFunctions = {
+  log = function(message){
+    console.log(message);
+  }
+},
+LoggingView = Backbone.View.extend($.extend({}, loggingFunctions),{
+  render = function(){
+    
+  }
+});
+
+myView = new LoggingView();
+myView.log('test');
+```
+The example above illustrates a solution which could reuse the logging functions objects via composition.  The properties are copied to the target object by using jquery's extend method, underscore and other libraries have an equivellent method, which could be used as well.  The only caveat to this approach is that copies of the source object are applied to the target object, so if you are considering using a mixin to extend functionality to thousands of objects - it might make more sense to use the prototypal inheritance/new discussed earlier to save resources.
+
 ## Decorating instance methods/functions
 ### Problem:
 You want to create a view that logs its output to the console whenever it's rendered, but you want it to automatically happen whenever render is called on a base view.  You don't want the developer to have to invoke the method excplicity in render.
@@ -62,6 +86,7 @@ console.log('content is ' + this.$el.html());
 # Model Techniques
 ## Types of Models
 ### View Models
+Most app
 ### Domain Models
 ## Using Backbone with Non-Restful services
 ### Overriding Backbone.sync
