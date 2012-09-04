@@ -9,6 +9,8 @@ I highly reccomend you consider using a module loader such as RequireJS.
 ## Decorating instance methods/functions
 
 # Model Techniques
+## View Models
+## Domain Models
 ## Using Backbone with Non-Restful services
 ### Overriding Backbone.sync
 ## Modelbinding
