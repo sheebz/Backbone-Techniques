@@ -84,15 +84,12 @@ console.log('content is ' + this.$el.html());
 });
 ```
 # Model Techniques
-## Types of Models
 ### View Models
 #### Problem:
 Most applications are basically just wrappers around what many refer to as a domain model.  A domain model can be thought of as business rules and data.  Usually the domain model does not have a 1-1 relationship with the UI or views that are presented to the user.  This presents a problem. How can we take advantage of the Model/View when the view looks nothing like the model?
 #### Solution:
 A possible solution is to use a view model.  A view model is basically just a value object that represents properties used within the view.
 
-
-### Domain Models
 ## Using Backbone with Non-Restful services
 ### Overriding Backbone.sync
 ## Modelbinding
