@@ -91,7 +91,15 @@ Most applications are basically just wrappers around what many refer to as a dom
 A possible solution is to use a view model.  A view model is basically just a value object that represents properties used within the view.
 
 ## Using Backbone with Non-Restful services
-### Overriding Backbone.sync
+### Problem:
+You want to use backbone, but don't have RESTful web services.
+
+Backbone works great with RESTful services, that is to say it works great as long as your services only needs a single url and HTTP verbs (GET,POST,DELTE,PUT) to differentiate the actions.  Many applications may not have the luxury of 100% RESTful services, but might still want to use backbone.
+
+### Solution: 
+Backbone gives you an all purpose hook called backbone.sync that you can use to override its standard - RESTful behaviour.  
+
+
 ## Modelbinding
 Modelbinding is a concept where your model's attributes are automatically bound to elements on the view.  Modelbinding offers several benefits:
 * eliminates need for tedious event wiring logic to keep view and model in sync.
