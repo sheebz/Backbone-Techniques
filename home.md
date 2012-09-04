@@ -38,7 +38,9 @@ crossroads.addRoute('/{controller}/{action}/{args}', function(controller, action
 });
 ```
 
-Note, the above implementation uses crossroads as opposed to the standard backbone router. Also note that we are using requirejs to pull in the controller module, we then invoke the controller's action method using the call method, this allows us to define the controller as the 'this' variable.
+Note, the above implementation uses crossroads as opposed to the standard backbone router. Mixing and matching components like this is not discouraged.  Backbone's flexibility allows you to architext a solution which best fits your needs. 
+
+Also note that we are using requirejs to pull in the controller module, we then invoke the controller's action method using the call method, this allows us to define the controller as the 'this' variable.
 
 ## Dependency Injection
 I highly reccomend you consider using a module loader such as RequireJS.
