@@ -1,15 +1,6 @@
-
-
-
-
-
-
+# General Techniques
 ## Implementing a Controller Object
 ### Dynamic Controller Invocation
-
-
-
-# General Techniques
 ## Dependency Injection
 I highly reccomend you consider using a module loader such as RequireJS.
 
