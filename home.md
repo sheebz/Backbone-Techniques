@@ -5,6 +5,8 @@
 ### Dynamic Controller Invocation
 ## Dependency Injection
 I highly reccomend you consider using a module loader such as RequireJS.
+## Using Mixins
+## Decorating instance methods/functions
 
 # Model Techniques
 ## Using Backbone with Non-Restful services
@@ -28,6 +30,10 @@ This is typically taken care of via a template library such as handlebars or mus
 ## Validation
 * Backbone's validation occurs on the model object.  
 * Validate is provided by the developer, is called automatically before save, this gives the developer a hook to implement custom reusable logic.  There are some 3rd party extensions for this. For example:  Backbone.Validation 
+
+## Base View
+A base view can be useful in situations where you find yourself copy pasting the same code in each view or calling the same methods for each view; validation or template loading for example.
+
 
 
 
