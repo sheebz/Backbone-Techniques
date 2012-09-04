@@ -1,35 +1,41 @@
-# Modelbinding
+
+
+
+
+
+
+## Implementing a Controller Object
+### Dynamic Controller Invocation
+
+
+
+# General Techniques
+## Dependency Injection
+I highly reccomend you consider using a module loader such as RequireJS.
+
+# Model Techniques
+## Using Backbone with Non-Restful services
+### Overriding Backbone.sync
+## Modelbinding
 Modelbinding is a concept where your model's attributes are automatically bound to elements on the view.  Modelbinding offers several benefits:
 * eliminates need for tedious event wiring logic to keep view and model in sync.
 * reduces total amount of code in application.
 * encapsulates event wiring and model to view sync logic
 
-## Model to view model binding
+### Model to view model binding
 This is typically taken care of via a template library such as handlebars or mustache.
 
-## View to model model binding
+### View to model model binding
 * Typically consists of binding a change events to form elements on page.  
 * There are backbone extensions which can take care of this for you. 
-* fairly easy to write your own.
+* fairly easy to write your own. 
 
+# View Techniques
+## Dynamic Template Loading
 ## Validation
 * Backbone's validation occurs on the model object.  
 * Validate is provided by the developer, is called automatically before save, this gives the developer a hook to implement custom reusable logic.  There are some 3rd party extensions for this.
 ** Backbone.Validation - 
-
-## Dependency Injection
-I highly reccomend you consider using a module loader such as RequireJS.
-
-## Dynamic Template Loading
-
-## Implementing a Controller Object
-### Dynamic Controller Invocation
-
-## Using Backbone with Non-Restful services
-### Overriding Backbone.sync
-
-
-
 
 
 
