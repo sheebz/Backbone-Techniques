@@ -1,6 +1,22 @@
 # Introduction
 
 # General Techniques
+## Return Promises for Fetch and Save
+### Problem:
+Eliminate repetitive success and error callbacks.  
+### Solution: 
+Backbone provides several hooks where you can tweak a model's CRUD implementation.  Backbone provides 2 methods for populating models: fetch and save.  These objects by default return the xhr object which is marginally useful.  You can change these methods to return something more useful, such as a promise.
+```javascript
+// Set the default implementation of `Backbone.ajax` to proxy through to $
+Backbone.ajax = function (options) {
+    //the promise should be set in Backbone.sync, this is a Q promise
+    var deferred = options.deferred;
+
+    Backbone.$.ajax.apply(Backbone.$, arguments);
+
+    return deferred.promise;
+};
+```
 ## Implementing a Controller Object
 ### Problem:
 You have a large application and want to avoid placing logic in routes and views.
