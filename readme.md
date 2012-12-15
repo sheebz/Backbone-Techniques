@@ -1,6 +1,43 @@
 # Introduction
 
 # General Techniques
+## Add JSON methods to collections and models
+### Problem:
+Performing common data manipulation tasks such as grouping require the developer to repeat code.  Also it 
+can be difficult to maintain.
+### Solution: 
+Include data manipulation functions in your model/collection definition.  This is good for several reasons.
+First you get access to the collection through the 'this' variable, second your model has a nice 
+cohesive function defined on the object itself.  The example below adds a generic grouping function
+to a backbone collection.  This function could be defined in a mix in or we could modify the 
+backbone collection prototype if we wanted to reuse it.
+
+```javascript
+var Collection = Backbone.collection.Extend({//...
+            //feel free to add methods which return various forms of object
+            toGroupedList:function (groupValue) {
+                var exports =
+                    [
+                    ];
+                var temp = _.groupBy(this.toJSON(), function (value) {
+                    return value[groupValue];
+                });
+
+                var groups = _.pairs(temp);
+
+                groups.forEach(function (group) {
+                    var obj = {groupByValue:group[0],
+                        data:group[1]};
+                    exports.push(obj);
+                });
+
+                return exports;
+            }
+});
+
+new Collection().toGroupedList('personName');
+```
+
 ## Return Promises for Fetch and Save
 ### Problem:
 Eliminate repetitive success and error callbacks.  
@@ -16,6 +53,7 @@ Backbone.ajax = function (options) {
 
     return deferred.promise;
 };
+
 ```
 ## Implementing a Controller Object
 ### Problem:
