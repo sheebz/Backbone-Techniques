@@ -1,6 +1,38 @@
 # Introduction
 
 # General Techniques
+## Add pipes to model.parse and collection.parse to transform data from service calls.
+### Problem:
+Data coming back from services may need to be manipulated before getting loaded into a backbone model or collection.  Changing
+data after the model is loaded threatens the integrity of the model and is difficult to maintain.
+### Solution: 
+Backbone models and collections provide a hook called parse, which takes a single parameter with the service response. 
+You can use this hook to modify data then return the response.  But what if you have complicated transforms that need
+to occur?  Or what if you don't want bloated parse functions?  One approach you could take is to define a set of 
+pipes or filters.  The pipes in this case are going to be functions that take a response parameter, and return the modified output. 
+You can execute the pipes against the response sequentially by using a method such as underscore's combine function.
+
+
+```javascript
+var pipes = {
+            pipe1 : function(response){
+                     response.pipes = ['hello from pipe1'];
+                     return response;
+            },
+            pipe1 : function(response){
+                     response.pipes.push('hello from pipe2');
+                     return response;
+            }
+};
+var PipedModel = Backbone.model.extend({
+            parse : _.combine(pipe1,pipe2)
+            
+            });
+
+
+```
+
+
 ## Add JSON methods to collections and models
 ### Problem:
 Performing common data manipulation tasks such as grouping require the developer to repeat code.  Also it 
